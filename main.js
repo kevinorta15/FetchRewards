@@ -6,10 +6,10 @@ $(document).ready(function () {
     const form = document.getElementById("JSONForm");
     form.addEventListener('submit', handleSubmit);
 
-
+    // URL to Get and Post To
     const API = "https://frontend-take-home.fetchrewards.com/form";
-    const hookbin = "https://requestinspector.com/inspect/01fs7x8bwj66va3ze123cpmjks"
 
+    //Method to GET Request, Loop Response Into Option Dropdown
     function getInfo() {
         var states = "";
         var occups = "";
@@ -31,10 +31,10 @@ $(document).ready(function () {
                 }
             })
     }
-
+//Call Method to Run
     getInfo();
 
-
+    //Handles the Post Request from the form
     function handleSubmit(event) {
         event.preventDefault();
         var data = new FormData(event.target);
@@ -53,48 +53,3 @@ $(document).ready(function () {
         fetch(API, options).then(r => console.log(r));
     }
 })
-//
-//
-// const API = "https://frontend-take-home.fetchrewards.com/form";
-//
-//
-//     $.get(API).done(function (data) {
-//         console.log(data);
-//
-//         var occups = "";
-//
-//
-//         for (var i = 0; i <= 12; i += 1) {
-//             // console.log(data.occupations[i]);
-//             occups += "<option>" + data.occupations[i] + "</option>"
-//         }
-//         $("#occupation").html(occups);
-//
-//         var states = "";
-//
-//         for (var i = 0; i <= 50; i += 1) {
-//             // console.log(data.states[i].name);
-//             states += "<option>" + data.states[i].name + ", " + data.states[i].abbreviation + "</option>"
-//         }
-//
-//         $("#state").html(states);
-//
-//         $('#JSONForm').submit(function () {
-//
-//             alert("Form has been submitted successfully!");
-//
-//             var obj = $('#JSONForm');
-//             $.ajax({
-//                 type: 'POST',
-//                 url: 'https://hookb.in/1gmgeGREKZFd6NOO6DYo',
-//                 // url:'https://frontend-take-home.fetchrewards.com/form',
-//                 dataType: 'json',
-//                 data: JSON.stringify(obj),
-//                 contentType: 'application/json',
-//                 success: function (data) {
-//                     alert(data)
-//                     console.log(obj.status);
-//                 }
-//             });
-//         })
-//     });
